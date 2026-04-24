@@ -117,7 +117,7 @@ img {
 .site-nav {
   display: flex;
   align-items: center;
-  gap: 28px;
+  gap: 22px;
   grid-column: 2;
 }
 
@@ -317,6 +317,7 @@ h1 {
 .scene-copy h2,
 .section-heading h2,
 .values-scene h2,
+.wholesale-copy h2,
 .partner-content h2 {
   margin-top: 12px;
   font-size: clamp(48px, 5.4vw, 72px);
@@ -325,6 +326,7 @@ h1 {
 
 .scene-copy p:not(.eyebrow),
 .section-heading p,
+.wholesale-copy p,
 .partner-lead {
   margin-top: 20px;
   color: var(--muted);
@@ -480,6 +482,134 @@ h1 {
 
 .feature-grid span {
   margin-top: 18px;
+}
+
+.wholesale-scene {
+  padding: 124px 0 132px;
+  color: var(--white);
+  background: var(--black);
+}
+
+.wholesale-scene .eyebrow {
+  color: #2997ff;
+}
+
+.wholesale-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 0.88fr) minmax(0, 1.12fr);
+  gap: 76px;
+  align-items: start;
+}
+
+.wholesale-copy h2 {
+  max-width: 760px;
+  color: var(--white);
+  font-size: clamp(48px, 5vw, 68px);
+  line-height: 1.04;
+}
+
+.wholesale-copy p {
+  max-width: 620px;
+  color: rgba(255, 255, 255, 0.76);
+}
+
+.wholesale-copy .button {
+  margin-top: 34px;
+}
+
+.wholesale-copy .button-secondary {
+  color: var(--white);
+  border-color: rgba(255, 255, 255, 0.34);
+}
+
+.wholesale-points {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 28px 34px;
+}
+
+.wholesale-points article {
+  min-height: 230px;
+  padding: 24px 0 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.wholesale-points article:first-child {
+  border-top-color: rgba(41, 151, 255, 0.72);
+}
+
+.wholesale-points span {
+  display: block;
+  color: #2997ff;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.wholesale-points strong {
+  display: block;
+  margin-top: 48px;
+  color: var(--white);
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 1.12;
+  letter-spacing: -0.22px;
+}
+
+.wholesale-points p {
+  margin-top: 12px;
+  color: var(--muted-dark);
+  font-size: 15px;
+  line-height: 1.43;
+}
+
+.faq-scene {
+  padding: 120px 0 132px;
+  background: var(--white);
+}
+
+.faq-list {
+  margin-top: 52px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.faq-list article {
+  position: relative;
+  padding: 30px;
+  border-radius: var(--radius);
+  background: var(--gray);
+}
+
+.faq-list article::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 30px;
+  right: 30px;
+  height: 2px;
+  background: rgba(0, 113, 227, 0.32);
+}
+
+.faq-list h3 {
+  color: var(--near-black);
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 1.12;
+  letter-spacing: -0.22px;
+}
+
+.faq-list p {
+  max-width: 520px;
+  margin-top: 12px;
+  color: var(--muted);
+  font-size: 17px;
+  line-height: 1.5;
+  letter-spacing: -0.22px;
+}
+
+.faq-list a {
+  color: var(--blue-dark);
 }
 
 .partner-scene {
@@ -645,6 +775,7 @@ h1 {
 @media (max-width: 1060px) {
   .hero-copy h1,
   .values-scene h2,
+  .wholesale-copy h2,
   .partner-content h2 {
     white-space: normal;
   }
@@ -666,6 +797,9 @@ h1 {
 
   .value-strip,
   .feature-grid,
+  .wholesale-layout,
+  .wholesale-points,
+  .faq-list,
   .partner-content,
   .partner-copy {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -741,6 +875,7 @@ h1 {
   .scene-copy h2,
   .section-heading h2,
   .values-scene h2,
+  .wholesale-copy h2,
   .partner-content h2 {
     font-size: 48px;
     max-width: 100%;
@@ -750,8 +885,11 @@ h1 {
   .hero-copy p,
   .scene-copy p:not(.eyebrow),
   .section-heading p,
+  .wholesale-copy p,
   .partner-lead,
   .value-strip p,
+  .wholesale-points p,
+  .faq-list p,
   .partner-copy p {
     max-width: 100%;
     font-size: 18px;
@@ -772,6 +910,9 @@ h1 {
   .size-grid,
   .value-strip,
   .feature-grid,
+  .wholesale-layout,
+  .wholesale-points,
+  .faq-list,
   .partner-content,
   .partner-copy {
     grid-template-columns: 1fr;
@@ -780,13 +921,23 @@ h1 {
   .brand-scene,
   .values-scene,
   .collection-scene,
-  .feature-scene {
+  .feature-scene,
+  .wholesale-scene,
+  .faq-scene {
     min-height: auto;
     padding: 86px 0;
   }
 
   .value-strip article {
     min-height: 0;
+  }
+
+  .wholesale-points article {
+    min-height: 0;
+  }
+
+  .wholesale-points strong {
+    margin-top: 30px;
   }
 
   .value-top {
