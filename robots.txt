@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://puzodyssey.com/sitemap.xml
