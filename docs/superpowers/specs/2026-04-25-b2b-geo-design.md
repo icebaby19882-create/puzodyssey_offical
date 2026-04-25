@@ -31,7 +31,8 @@ Each page includes a single H1, short intro, buyer-focused sections, FAQ, and a 
 - Add `/llms.txt` as a concise AI-readable business identity file.
 - Update `robots.txt` to explicitly allow OAI-SearchBot and ChatGPT-User while retaining general crawl access.
 - Update `sitemap.xml` with all new pages and accurate `lastmod` dates.
-- Add JSON-LD to the homepage and new pages using relevant schema types: `Organization`, `WebSite`, `WebPage`, `Product`, and `FAQPage`.
+- Add JSON-LD to the homepage and new pages using relevant schema types: `Organization`, `WebSite`, `WebPage`, `ItemList`, and `FAQPage`.
+- Avoid `Product` JSON-LD until public pricing, offers, reviews, or aggregate ratings are available, because Google product rich results require those fields.
 
 ## Homepage Changes
 

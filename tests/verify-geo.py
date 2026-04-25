@@ -143,8 +143,9 @@ def test_homepage_links_and_schema() -> None:
         assert f"./{page}" in parser.links, f"Homepage must link to {page}"
 
     types = json_ld_types(parser, "index.html")
-    for expected_type in ["Organization", "WebSite", "WebPage", "Product", "FAQPage"]:
+    for expected_type in ["Organization", "WebSite", "WebPage", "ItemList", "FAQPage"]:
         assert expected_type in types, f"index.html missing {expected_type} JSON-LD"
+    assert "Product" not in types, "index.html should not emit Product JSON-LD without offers, review, or aggregateRating"
 
 
 def test_geo_pages() -> None:
