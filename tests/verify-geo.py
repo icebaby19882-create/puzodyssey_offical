@@ -122,6 +122,7 @@ def assert_no_placeholders(text: str, context: str) -> None:
 def test_llms_txt() -> None:
     text = read("llms.txt")
     assert text.startswith("# PuzOdyssey\n"), "llms.txt must start with a single H1"
+    assert "Last updated: 2026-04-26" in text, "llms.txt must include a freshness signal"
     assert f"{SITE}/" in text, "llms.txt must include canonical site URL"
     assert_terms(text, REQUIRED_TERMS, "llms.txt")
     assert "What We Do Not Claim" in text, "llms.txt must avoid unconfirmed B2B claims"
@@ -130,8 +131,16 @@ def test_llms_txt() -> None:
 
 def test_robots_txt() -> None:
     text = read("robots.txt")
-    assert "User-agent: OAI-SearchBot" in text, "robots.txt should explicitly allow OAI-SearchBot"
-    assert "User-agent: ChatGPT-User" in text, "robots.txt should explicitly allow ChatGPT-User"
+    for bot in [
+        "OAI-SearchBot",
+        "ChatGPT-User",
+        "GPTBot",
+        "PerplexityBot",
+        "Claude-SearchBot",
+        "Claude-User",
+        "ClaudeBot",
+    ]:
+        assert f"User-agent: {bot}" in text, f"robots.txt should explicitly allow {bot}"
     assert f"Sitemap: {SITE}/sitemap.xml" in text, "robots.txt must point to sitemap"
 
 
@@ -154,11 +163,14 @@ def test_geo_pages() -> None:
         assert parser.h1_count == 1, f"{page} must have exactly one H1"
         assert parser.canonical == f"{SITE}/{page}", f"{page} has wrong canonical URL"
         assert "mailto:partnerships@puzodyssey.com" in html, f"{page} missing email CTA"
+        assert "Quick answer" in html, f"{page} missing a short AI-citable answer block"
+        assert "Last updated: April 26, 2026" in html, f"{page} missing visible freshness signal"
         assert_terms(html, REQUIRED_TERMS, page)
         assert_no_placeholders(html, page)
 
         types = json_ld_types(parser, page)
         assert "WebPage" in types, f"{page} missing WebPage JSON-LD"
+        assert "BreadcrumbList" in types, f"{page} missing BreadcrumbList JSON-LD"
         assert "FAQPage" in types, f"{page} missing FAQPage JSON-LD"
 
 
@@ -178,6 +190,7 @@ def test_sitemap() -> None:
     assert lastmods, "sitemap.xml must include lastmod values"
     for value in lastmods:
         assert re.fullmatch(r"\d{4}-\d{2}-\d{2}", value), f"Invalid lastmod format: {value}"
+        assert value == "2026-04-26", f"Expected current lastmod for GEO update, got: {value}"
 
 
 def test_headers() -> None:
