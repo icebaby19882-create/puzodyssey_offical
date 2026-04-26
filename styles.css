@@ -590,6 +590,57 @@ h1 {
   line-height: 1.43;
 }
 
+.manufacturing-scene {
+  padding: 124px 0 132px;
+  background: var(--gray);
+}
+
+.manufacturing-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 0.78fr) minmax(0, 1.22fr);
+  gap: 64px;
+  align-items: center;
+}
+
+.manufacturing-copy h2 {
+  max-width: 13ch;
+  color: var(--near-black);
+  font-size: clamp(44px, 4.7vw, 64px);
+  line-height: 1.06;
+}
+
+.manufacturing-copy p:not(.eyebrow):not(.manufacturing-caption) {
+  max-width: 540px;
+  margin-top: 18px;
+  color: var(--muted);
+  font-size: 20px;
+  line-height: 1.45;
+  letter-spacing: -0.22px;
+}
+
+.manufacturing-caption {
+  margin-top: 28px;
+  color: rgba(29, 29, 31, 0.54);
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.35;
+  letter-spacing: -0.12px;
+}
+
+.manufacturing-image {
+  margin: 0;
+}
+
+.manufacturing-image img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  object-position: center 42%;
+  border-radius: var(--radius);
+  filter: saturate(0.88) contrast(0.98) brightness(0.99);
+}
+
 .faq-scene {
   padding: 120px 0 132px;
   background: var(--white);
@@ -937,6 +988,7 @@ h1 {
   .value-strip,
   .feature-grid,
   .wholesale-layout,
+  .manufacturing-layout,
   .wholesale-points,
   .faq-list,
   .info-hero-grid,
@@ -1030,6 +1082,7 @@ h1 {
   .scene-copy p:not(.eyebrow),
   .section-heading p,
   .wholesale-copy p,
+  .manufacturing-copy p:not(.eyebrow):not(.manufacturing-caption),
   .partner-lead,
   .value-strip p,
   .wholesale-points p,
@@ -1055,6 +1108,7 @@ h1 {
   .value-strip,
   .feature-grid,
   .wholesale-layout,
+  .manufacturing-layout,
   .wholesale-points,
   .faq-list,
   .info-hero-grid,
@@ -1070,6 +1124,7 @@ h1 {
   .collection-scene,
   .feature-scene,
   .wholesale-scene,
+  .manufacturing-scene,
   .info-hero,
   .info-section,
   .faq-scene {
@@ -1106,6 +1161,19 @@ h1 {
 
   .wholesale-points strong {
     margin-top: 30px;
+  }
+
+  .manufacturing-layout {
+    gap: 42px;
+  }
+
+  .manufacturing-copy h2 {
+    max-width: 100%;
+    font-size: 44px;
+  }
+
+  .manufacturing-caption {
+    margin-top: 20px;
   }
 
   .value-top {
