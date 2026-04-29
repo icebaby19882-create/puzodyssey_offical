@@ -122,7 +122,7 @@ def assert_no_placeholders(text: str, context: str) -> None:
 def test_llms_txt() -> None:
     text = read("llms.txt")
     assert text.startswith("# PuzOdyssey\n"), "llms.txt must start with a single H1"
-    assert "Last updated: 2026-04-26" in text, "llms.txt must include a freshness signal"
+    assert "Last updated: 2026-04-27" in text, "llms.txt must include a freshness signal"
     assert f"{SITE}/" in text, "llms.txt must include canonical site URL"
     assert_terms(text, REQUIRED_TERMS, "llms.txt")
     assert "What We Do Not Claim" in text, "llms.txt must avoid unconfirmed B2B claims"
@@ -164,7 +164,7 @@ def test_geo_pages() -> None:
         assert parser.canonical == f"{SITE}/{page}", f"{page} has wrong canonical URL"
         assert "mailto:partnerships@puzodyssey.com" in html, f"{page} missing email CTA"
         assert "Quick answer" in html, f"{page} missing a short AI-citable answer block"
-        assert "Last updated: April 26, 2026" in html, f"{page} missing visible freshness signal"
+        assert "Last updated: April 27, 2026" in html, f"{page} missing visible freshness signal"
         assert_terms(html, REQUIRED_TERMS, page)
         assert_no_placeholders(html, page)
 
@@ -190,7 +190,7 @@ def test_sitemap() -> None:
     assert lastmods, "sitemap.xml must include lastmod values"
     for value in lastmods:
         assert re.fullmatch(r"\d{4}-\d{2}-\d{2}", value), f"Invalid lastmod format: {value}"
-        assert value == "2026-04-26", f"Expected current lastmod for GEO update, got: {value}"
+        assert value == "2026-04-27", f"Expected current lastmod for GEO update, got: {value}"
 
 
 def test_headers() -> None:
