@@ -3,6 +3,7 @@ const siteNav = document.querySelector(".site-nav");
 const navLinks = document.querySelectorAll(".site-nav a");
 const yearTarget = document.querySelector("#year");
 const revealItems = document.querySelectorAll(".reveal");
+const mobileCollapsibles = document.querySelectorAll("[data-mobile-collapsible]");
 
 if (yearTarget) {
   yearTarget.textContent = new Date().getFullYear();
@@ -21,6 +22,23 @@ if (navToggle && siteNav) {
       navToggle.setAttribute("aria-expanded", "false");
     });
   });
+}
+
+if (mobileCollapsibles.length) {
+  const mobileQuery = window.matchMedia("(max-width: 760px)");
+  const syncMobileCollapsibles = () => {
+    mobileCollapsibles.forEach((item) => {
+      item.open = !mobileQuery.matches || item.hasAttribute("data-mobile-open");
+    });
+  };
+
+  syncMobileCollapsibles();
+
+  if (typeof mobileQuery.addEventListener === "function") {
+    mobileQuery.addEventListener("change", syncMobileCollapsibles);
+  } else {
+    mobileQuery.addListener(syncMobileCollapsibles);
+  }
 }
 
 if ("IntersectionObserver" in window) {
