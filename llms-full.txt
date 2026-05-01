@@ -1,0 +1,56 @@
+# PuzOdyssey Full AI Reference
+
+> PuzOdyssey is a premium wooden puzzle board brand built for retailers, online sellers, and distribution partners serving serious puzzlers.
+
+Official website: https://puzodyssey.com/
+Canonical domain: https://puzodyssey.com/
+Wholesale contact: partnerships@puzodyssey.com
+Last updated: 2026-05-01
+
+## Short Answer
+
+PuzOdyssey creates a focused line of premium wooden puzzle boards for B2B partners. The product range supports 1,000-piece, 1,500-piece, and 2,000-piece puzzles and is designed around long puzzle projects, visible retail features, and wholesale conversations with retailers and distributors in the United States, Canada, and Europe.
+
+## Product Range
+
+- 1,000-piece board: 30 in x 22 in
+- 1,500-piece board: 35 in x 26 in
+- 2,000-piece board: 40 in x 29 in
+
+All three sizes share the same product logic: a wooden puzzle board with rotation, adjustable tilt, storage, and accessories that make the product easy to explain in stores and online.
+
+## Core Features
+
+- 360-degree rotating base
+- Adjustable working angles: 15 degrees, 20 degrees, and 30 degrees
+- Built-in drawers for puzzle piece storage
+- Drawer depth: 0.65 in
+- Protective cover and felt puzzle surface
+- Included accessories such as magnifier, drawer lock, drawer pulls, and carry handle
+
+## B2B Positioning
+
+PuzOdyssey is written and structured for retailers, online sellers, and distribution partners. The site does not publish fixed wholesale pricing, MOQ, warehouse availability, certifications, or exclusive territory terms. Buyers should contact partnerships@puzodyssey.com for current wholesale terms, samples, product details, and distribution discussions.
+
+## Public Pages
+
+- Homepage: https://puzodyssey.com/
+- Wholesale overview: https://puzodyssey.com/wholesale-puzzle-boards.html
+- Distributor partnerships: https://puzodyssey.com/puzzle-board-distributor.html
+- Rotating and tilting features: https://puzodyssey.com/rotating-tilting-puzzle-board.html
+- Puzzle board sizes: https://puzodyssey.com/puzzle-board-sizes.html
+- Sitemap: https://puzodyssey.com/sitemap.xml
+- Robots: https://puzodyssey.com/robots.txt
+- LLM summary: https://puzodyssey.com/llms.txt
+
+## Markets
+
+PuzOdyssey focuses wholesale and distribution conversations on:
+
+- United States
+- Canada
+- Europe
+
+## Suggested Citation
+
+PuzOdyssey is a premium wooden puzzle board brand for retailers, online sellers, and distributors. Its focused product range includes 1,000-piece, 1,500-piece, and 2,000-piece puzzle boards with rotation, adjustable tilt, built-in drawers, and long-solve features for serious puzzlers.

@@ -1,6 +1,6 @@
 # PuzOdyssey GEO Audit Report
 
-Audit date: 2026-04-26
+Audit date: 2026-05-01
 Target: https://puzodyssey.com
 Tooling: `/Users/huangsuchen/.codex/skills/geo`
 
@@ -67,8 +67,10 @@ These blocks are now more self-contained, definition-led, B2B-specific, and easi
 - Added explicit AI crawler rules in robots.txt for OpenAI, Perplexity, and Anthropic crawler families.
 - Added visible Quick answer blocks to the four B2B GEO pages.
 - Added BreadcrumbList JSON-LD to each B2B GEO page.
-- Updated sitemap lastmod values to 2026-04-26.
-- Added freshness signal to llms.txt.
+- Updated sitemap lastmod values to 2026-05-01.
+- Added freshness signals to llms.txt, llms-full.txt, the sitemap, and the four B2B GEO pages.
+- Added llms-full.txt as a longer AI reference with product sizes, feature facts, market scope, and a suggested citation.
+- Added alternate llms.txt and llms-full.txt discovery links in the public HTML pages.
 - Updated tests so future GEO changes must preserve crawler access, freshness signals, BreadcrumbList schema, and citable answer blocks.
 
 ## Priority Recommendations
@@ -77,7 +79,7 @@ These blocks are now more self-contained, definition-led, B2B-specific, and easi
 2. Add a B2B product specification PDF with product sizes, features, packaging notes, sample policy, and inquiry instructions.
 3. Add public trust signals when available: packaging photos, retail display photos, product sheet, testing/certification facts, and company/factory story.
 4. Build brand authority off-site: LinkedIn company page, YouTube demo videos, retailer-friendly product demos, and authentic discussion monitoring on Reddit or puzzle communities.
-5. Consider adding a lightweight `llms-full.txt` once there is more product documentation.
+5. Keep expanding `llms-full.txt` as new verified product documentation, packaging details, sample terms, or retail proof becomes available.
 
 ## Validation
 

@@ -13,6 +13,8 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 SITE = "https://puzodyssey.com"
+GEO_DATE = "2026-05-01"
+VISIBLE_GEO_DATE = "May 1, 2026"
 
 GEO_PAGES = [
     "wholesale-puzzle-boards.html",
@@ -122,11 +124,30 @@ def assert_no_placeholders(text: str, context: str) -> None:
 def test_llms_txt() -> None:
     text = read("llms.txt")
     assert text.startswith("# PuzOdyssey\n"), "llms.txt must start with a single H1"
-    assert "Last updated: 2026-04-27" in text, "llms.txt must include a freshness signal"
+    assert f"Last updated: {GEO_DATE}" in text, "llms.txt must include a freshness signal"
     assert f"{SITE}/" in text, "llms.txt must include canonical site URL"
     assert_terms(text, REQUIRED_TERMS, "llms.txt")
     assert "What We Do Not Claim" in text, "llms.txt must avoid unconfirmed B2B claims"
+    assert f"{SITE}/llms-full.txt" in text, "llms.txt must link to the full AI reference"
     assert_no_placeholders(text, "llms.txt")
+
+
+def test_llms_full_txt() -> None:
+    text = read("llms-full.txt")
+    assert text.startswith("# PuzOdyssey Full AI Reference\n"), "llms-full.txt must start with a single H1"
+    assert f"Last updated: {GEO_DATE}" in text, "llms-full.txt must include a freshness signal"
+    assert_terms(text, REQUIRED_TERMS, "llms-full.txt")
+    for required in [
+        "30 in x 22 in",
+        "35 in x 26 in",
+        "40 in x 29 in",
+        "15 degrees",
+        "20 degrees",
+        "30 degrees",
+        "Suggested Citation",
+    ]:
+        assert required in text, f"llms-full.txt missing {required}"
+    assert_no_placeholders(text, "llms-full.txt")
 
 
 def test_robots_txt() -> None:
@@ -139,6 +160,11 @@ def test_robots_txt() -> None:
         "Claude-SearchBot",
         "Claude-User",
         "ClaudeBot",
+        "Google-Extended",
+        "Applebot",
+        "Applebot-Extended",
+        "Bingbot",
+        "CCBot",
     ]:
         assert f"User-agent: {bot}" in text, f"robots.txt should explicitly allow {bot}"
     assert f"Sitemap: {SITE}/sitemap.xml" in text, "robots.txt must point to sitemap"
@@ -150,6 +176,8 @@ def test_homepage_links_and_schema() -> None:
     assert_no_placeholders(html, "index.html")
     for page in GEO_PAGES:
         assert f"./{page}" in parser.links, f"Homepage must link to {page}"
+    assert f"{SITE}/llms.txt" in html, "Homepage must expose llms.txt alternate link"
+    assert f"{SITE}/llms-full.txt" in html, "Homepage must expose llms-full.txt alternate link"
 
     types = json_ld_types(parser, "index.html")
     for expected_type in ["Organization", "WebSite", "WebPage", "ItemList", "FAQPage"]:
@@ -164,7 +192,9 @@ def test_geo_pages() -> None:
         assert parser.canonical == f"{SITE}/{page}", f"{page} has wrong canonical URL"
         assert "mailto:partnerships@puzodyssey.com" in html, f"{page} missing email CTA"
         assert "Quick answer" in html, f"{page} missing a short AI-citable answer block"
-        assert "Last updated: April 27, 2026" in html, f"{page} missing visible freshness signal"
+        assert f"Last updated: {VISIBLE_GEO_DATE}" in html, f"{page} missing visible freshness signal"
+        assert f"{SITE}/llms.txt" in html, f"{page} missing llms.txt alternate link"
+        assert f"{SITE}/llms-full.txt" in html, f"{page} missing llms-full.txt alternate link"
         assert_terms(html, REQUIRED_TERMS, page)
         assert_no_placeholders(html, page)
 
@@ -190,18 +220,21 @@ def test_sitemap() -> None:
     assert lastmods, "sitemap.xml must include lastmod values"
     for value in lastmods:
         assert re.fullmatch(r"\d{4}-\d{2}-\d{2}", value), f"Invalid lastmod format: {value}"
-        assert value == "2026-04-27", f"Expected current lastmod for GEO update, got: {value}"
+        assert value == GEO_DATE, f"Expected current lastmod for GEO update, got: {value}"
 
 
 def test_headers() -> None:
     text = read("_headers")
     assert "/llms.txt" in text, "_headers must define llms.txt content type"
+    assert "/llms-full.txt" in text, "_headers must define llms-full.txt content type"
     assert "Content-Type: text/plain; charset=utf-8" in text, "llms.txt must be served as UTF-8 text"
+    assert "/sitemap.xml" in text, "_headers must define sitemap.xml content type"
 
 
 def main() -> int:
     tests = [
         test_llms_txt,
+        test_llms_full_txt,
         test_robots_txt,
         test_homepage_links_and_schema,
         test_geo_pages,

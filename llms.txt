@@ -4,7 +4,7 @@
 
 Official website: https://puzodyssey.com/
 Wholesale contact: partnerships@puzodyssey.com
-Last updated: 2026-04-27
+Last updated: 2026-05-01
 
 PuzOdyssey creates rotating and tilting wooden puzzle boards for long puzzle projects. The collection includes puzzle boards for 1,000-piece, 1,500-piece, and 2,000-piece puzzles, with features such as adjustable tilt, 360-degree rotation, built-in drawers, a felt puzzle surface, and a protective cover.
 
@@ -45,3 +45,4 @@ PuzOdyssey welcomes wholesale conversations with retailers, online sellers, and 
 
 - [Sitemap](https://puzodyssey.com/sitemap.xml): Canonical list of public pages.
 - [Robots](https://puzodyssey.com/robots.txt): Crawler access preferences.
+- [Full AI reference](https://puzodyssey.com/llms-full.txt): Longer product, market, feature, and citation summary for AI systems.
